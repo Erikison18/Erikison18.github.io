@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>git笔记 | Erik博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一.起步1.版本控制2.Git 基础直接记录快照，而非差异比较 所有操作都是本地执行 三种状态：已提交（committed），已修改（modified）和已暂存（staged） 三个工作区域：Git 的工作目录，暂存区域，以及本地仓库 3.安装 Git Linux 上安装：$ yum install git-core/$ apt-get install git  Mac 上安装:$ sudo po">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git笔记">
+<meta property="og:url" content="http://yoursite.com/2018/03/04/git笔记/index.html">
+<meta property="og:site_name" content="Erik博客">
+<meta property="og:description" content="一.起步1.版本控制2.Git 基础直接记录快照，而非差异比较 所有操作都是本地执行 三种状态：已提交（committed），已修改（modified）和已暂存（staged） 三个工作区域：Git 的工作目录，暂存区域，以及本地仓库 3.安装 Git Linux 上安装：$ yum install git-core/$ apt-get install git  Mac 上安装:$ sudo po">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-04T14:52:50.731Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git笔记">
+<meta name="twitter:description" content="一.起步1.版本控制2.Git 基础直接记录快照，而非差异比较 所有操作都是本地执行 三种状态：已提交（committed），已修改（modified）和已暂存（staged） 三个工作区域：Git 的工作目录，暂存区域，以及本地仓库 3.安装 Git Linux 上安装：$ yum install git-core/$ apt-get install git  Mac 上安装:$ sudo po">
+  
+    <link rel="alternate" href="/atom.xml" title="Erik博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Erik</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                首页
+            </a>
+            
+            <a class="nav-item" href="/document">
+                文档
+            </a>
+            
+            <a class="nav-item" href="/about">
+                关于
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                首页
+            </a>
+            
+            <a class="nav-item flex-1" href="/document">
+                文档
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                关于
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>git笔记</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="/css/images/banner.jpg">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Erik</span>
+                <span class="post-date sub-title">at: 2018-03-04</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/git/">git</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="一-起步"><a href="#一-起步" class="headerlink" title="一.起步"></a>一.起步</h2><h5 id="1-版本控制"><a href="#1-版本控制" class="headerlink" title="1.版本控制"></a>1.版本控制</h5><h5 id="2-Git-基础"><a href="#2-Git-基础" class="headerlink" title="2.Git 基础"></a>2.Git 基础</h5><p>直接记录快照，而非差异比较</p>
+<p>所有操作都是本地执行</p>
+<p>三种状态：已提交（committed），已修改（modified）和已暂存（staged）</p>
+<p>三个工作区域：Git 的工作目录，暂存区域，以及本地仓库</p>
+<h5 id="3-安装-Git"><a href="#3-安装-Git" class="headerlink" title="3.安装 Git"></a>3.安装 Git</h5><p> Linux 上安装：$ yum install git-core/$ apt-get install git</p>
+<p> Mac 上安装:$ sudo port install git-core +svn +doc +bash_completion +gitweb</p>
+<p> Windows 上安装:<a href="http://msysgit.github.com/" target="_blank" rel="noopener">http://msysgit.github.com/</a></p>
+<h5 id="5-初次运行-Git-前的配置"><a href="#5-初次运行-Git-前的配置" class="headerlink" title="5 初次运行 Git 前的配置"></a>5 初次运行 Git 前的配置</h5><p>git-config</p>
+<p>用户信息:$ git config –global user.name “John Doe”</p>
+<p>文本编辑器:$ git config –global core.editor emacs</p>
+<p> 差异分析工具:$ git config –global merge.tool vimdiff</p>
+<p> 查看配置信息:git config –list</p>
+<p> $ git config user.name</p>
+<h5 id="6-获取帮助"><a href="#6-获取帮助" class="headerlink" title="6.获取帮助"></a>6.获取帮助</h5><p>$ git help <verb></verb></p>
+<p>$ git help config</p>
+<h2 id="二-Git基础"><a href="#二-Git基础" class="headerlink" title="二.Git基础"></a>二.Git基础</h2><h5 id="1-取得项目的-Git-仓库"><a href="#1-取得项目的-Git-仓库" class="headerlink" title="1. 取得项目的 Git 仓库"></a>1. 取得项目的 Git 仓库</h5><p>初始化新仓库:$ git init</p>
+<p>git add 命令告诉 Git 开始对这些文件进行跟踪，然后提交：</p>
+<p>$ git add *</p>
+<p>$ git add README</p>
+<p>$ git commit -m ‘initial project version’</p>
+<p>现有仓库克隆:</p>
+<p>$ git clone git://github.com/schacon/grit.git</p>
+<p>$ git clone git://github.com/schacon/grit.git mygrit</p>
+<h5 id="2-记录每次更新到仓库"><a href="#2-记录每次更新到仓库" class="headerlink" title="2 记录每次更新到仓库"></a>2 记录每次更新到仓库</h5><p>查当前文件状态：$ git status</p>
+<p>跟踪新文件：$ git add README</p>
+<p>暂存已修改文件：$ git add benchmarks.rb</p>
+<p>忽略某些文件：$ cat .gitignore/<em>.[oa]/</em>~</p>
+<p>查看已暂存和未暂存的更新:$ git diff</p>
+<p>已经暂存起来的文件和上次提交时的快照之间的差异: git diff –cached  /  git diff –staged</p>
+<p>提交更新:$ git commit</p>
+<p>可以用 -m 参数后跟提交说明的方式:$ git commit -m “Story 182: Fix benchmarks for speed”</p>
+<p>加上 -a 选项,跳过使用暂存区域,跳过git add 步骤:$ git commit -a -m ‘added new benchmarks’</p>
+<p>移除文件:$ rm grit.gemspec  </p>
+<p>$ git rm grit.gemspec</p>
+<p>rm ‘grit.gemspec’</p>
+<p>$ git rm –cached readme.txt  /  $ git rm log/*.log  /  $ git rm *~</p>
+<p>移动文件:$ git mv file_from file_to  /  $ git mv README.txt README</p>
+<h5 id="3-查看提交历史"><a href="#3-查看提交历史" class="headerlink" title="3. 查看提交历史"></a>3. 查看提交历史</h5><p>获取该项目源代码：git clone git://github.com/schacon/simplegit-progit.git</p>
+<p>回顾下提交历史:$ git log</p>
+<p>-p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新：$ git log -p -2</p>
+<p>简要的增改行数统计：$ git log –stat</p>
+<p>限制输出长度:$ git log –since=2.weeks</p>
+<h5 id="4-撤消操作"><a href="#4-撤消操作" class="headerlink" title="4. 撤消操作"></a>4. 撤消操作</h5><p>修改最后一次提交:$ git commit –amend</p>
+<p>取消已经暂存的文件:$ git reset HEAD benchmarks.rb</p>
+<p>取消对文件的修改: git checkout – benchmarks.rb</p>
+<h5 id="5-远程仓库的使用"><a href="#5-远程仓库的使用" class="headerlink" title="5. 远程仓库的使用"></a>5. 远程仓库的使用</h5><p>查看当前的远程库:$ git remote -v</p>
+<p>$ cd grit</p>
+<p>添加远程仓库:git remote add [shortname] [url]</p>
+<p>字符串 pb 指代对应的仓库地址:$ git fetch pb</p>
+<p>从远程仓库抓取数据:$ git fetch [remote-name]</p>
+<p>推送数据到远程仓库:$ git push origin master</p>
+<p>查看远程仓库信息:$ git remote show origin</p>
+<p>远程仓库的删除和重命名:$ git remote rename pb paul / $ git remote rm paul</p>
+<h5 id="6-打标签"><a href="#6-打标签" class="headerlink" title="6 打标签"></a>6 打标签</h5><p>列显已有的标签:git tag</p>
+<p>新建标签:</p>
+<p>含附注的标签:$ git tag -a v1.4 -m ‘my version 1.4’ / $ git show v1.4</p>
+<p>签署标签:$ git tag -s v1.5 -m ‘my signed 1.5 tag’</p>
+<p>轻量级标签:$ git tag v1.4-lw</p>
+<p>验证标签:git tag -v [tag-name]</p>
+<p>后期加注标签:$ git log –pretty=oneline</p>
+<p>分享标签:$ git push origin v1.5 / $ git push origin –tags</p>
+<h5 id="7-技巧和窍门"><a href="#7-技巧和窍门" class="headerlink" title="7. 技巧和窍门"></a>7. 技巧和窍门</h5><p>自动补全:$ git co<tab><tab>敲两次跳格键（Tab）</tab></tab></p>
+<p>Tab 键看看有哪些匹配的：$ git log –s<tab></tab></p>
+<p>Git 命令别名:$ git config –global alias.co checkout</p>
+<pre><code>$ git config --global alias.br branch
+
+$ git config --global alias.ci commit
+
+$ git config --global alias.st status
+</code></pre><p>经常设置 last 命令:$ git config –global alias.last ‘log -1 HEAD’ / $ git last</p>
+<h2 id="三-Git-分支"><a href="#三-Git-分支" class="headerlink" title="三. Git 分支"></a>三. Git 分支</h2><h5 id="1-何谓分支"><a href="#1-何谓分支" class="headerlink" title="1. 何谓分支"></a>1. 何谓分支</h5><p>新建一个 testing 分支:$ git branch testing</p>
+<p>转换到新建的 testing 分支：$ git checkout testing</p>
+<p>回到 master 分支:$ git checkout master</p>
+<h5 id="2-分支的新建与合并"><a href="#2-分支的新建与合并" class="headerlink" title="2. 分支的新建与合并"></a>2. 分支的新建与合并</h5><p>新建并切换到该分支，运行 git checkout 并加上 -b 参数：$ git checkout -b iss53</p>
+<p>$ vim index.html<br> /   $ git commit -a -m ‘added a new footer [issue 53]’</p>
+<p>创建一个紧急修补分支 hotfix 来开展工作:$ git checkout -b ‘hotfix’</p>
+<p>git branch 的 -d 选项执行删除操作：$ git branch -d hotfix</p>
+<p>分支的合并:$ git checkout master / $ git merge iss53</p>
+<h5 id="3-分支的管理"><a href="#3-分支的管理" class="headerlink" title="3. 分支的管理"></a>3. 分支的管理</h5><p>所有分支的清单：$ git branch</p>
+<p>查看各个分支最后一个提交对象的信息: git branch -v</p>
+<p>查看哪些分支已被并入当前分支:$ git branch –merged</p>
+<p>查看尚未合并的工作：$ git branch –no-merged</p>
+<h5 id="4-分支进行开发的工作流程"><a href="#4-分支进行开发的工作流程" class="headerlink" title="4.分支进行开发的工作流程"></a>4.分支进行开发的工作流程</h5><p>长期分支</p>
+<p>特性分支</p>
+<h5 id="5-远程分支"><a href="#5-远程分支" class="headerlink" title="5. 远程分支"></a>5. 远程分支</h5><p>(远程仓库名)/(分支名) 这样的形式表示远程分支。查看 origin/master 分支</p>
+<p>可以运行 git fetch origin 来同步远程服务器上的数据到本地</p>
+<p>推送本地分支:$ git push origin serverfix</p>
+<p>在远程分支的基础上分化出一个新的分支来：$ git checkout -b serverfix origin/serverfix</p>
+<p>跟踪远程分支:$ git checkout –track origin/serverfix / git checkout -b [分支名] [远程名]/[分支名]</p>
+<p>删除远程分支:$ git push origin :serverfix</p>
+<h5 id="6-分支的衍合"><a href="#6-分支的衍合" class="headerlink" title="6. 分支的衍合"></a>6. 分支的衍合</h5><p>用 git rebase 的 –onto 选项指定新的基底分支 master：$ git rebase –onto master server client</p>
+
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © caoqiang 2018
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>MDN-JavaScript指南 | Erik博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="introduction什么是 JavaScript ?JavaScript 是一门跨平台、面向对象的轻量级脚本语言。 在宿主环境（例如 web 浏览器）中， JavaScript 能够通过其所连接的环境提供的编程接口进行控制。 JavaScript 和 Java 的对比JavaScript面向对象。不区分对象类型。通过原型机制继承，任何对象的属性和方法均可以被动态添加。变量类型不需要提前声明(动">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MDN-JavaScript指南">
+<meta property="og:url" content="http://yoursite.com/2018/03/06/MDN-JavaScript指南/index.html">
+<meta property="og:site_name" content="Erik博客">
+<meta property="og:description" content="introduction什么是 JavaScript ?JavaScript 是一门跨平台、面向对象的轻量级脚本语言。 在宿主环境（例如 web 浏览器）中， JavaScript 能够通过其所连接的环境提供的编程接口进行控制。 JavaScript 和 Java 的对比JavaScript面向对象。不区分对象类型。通过原型机制继承，任何对象的属性和方法均可以被动态添加。变量类型不需要提前声明(动">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-06T11:59:55.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MDN-JavaScript指南">
+<meta name="twitter:description" content="introduction什么是 JavaScript ?JavaScript 是一门跨平台、面向对象的轻量级脚本语言。 在宿主环境（例如 web 浏览器）中， JavaScript 能够通过其所连接的环境提供的编程接口进行控制。 JavaScript 和 Java 的对比JavaScript面向对象。不区分对象类型。通过原型机制继承，任何对象的属性和方法均可以被动态添加。变量类型不需要提前声明(动">
+  
+    <link rel="alternate" href="/atom.xml" title="Erik博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Erik</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                首页
+            </a>
+            
+            <a class="nav-item" href="/document">
+                文档
+            </a>
+            
+            <a class="nav-item" href="/about">
+                关于
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                首页
+            </a>
+            
+            <a class="nav-item flex-1" href="/document">
+                文档
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                关于
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>MDN-JavaScript指南</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="/css/images/banner.jpg">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Erik</span>
+                <span class="post-date sub-title">at: 2018-03-06</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/js/">js</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h1 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h1><h5 id="什么是-JavaScript"><a href="#什么是-JavaScript" class="headerlink" title="什么是 JavaScript ?"></a>什么是 JavaScript ?</h5><p>JavaScript 是一门跨平台、面向对象的轻量级脚本语言。 在宿主环境（例如 web 浏览器）中， JavaScript 能够通过其所连接的环境提供的编程接口进行控制。</p>
+<h5 id="JavaScript-和-Java-的对比"><a href="#JavaScript-和-Java-的对比" class="headerlink" title="JavaScript 和 Java 的对比"></a>JavaScript 和 Java 的对比</h5><p>JavaScript<br>面向对象。不区分对象类型。通过原型机制继承，任何对象的属性和方法均可以被动态添加。<br>变量类型不需要提前声明(动态类型)。<br>不能直接自动写入硬盘。    </p>
+<p>Java 基于类系统。分为类和实例，通过类层级的定义实现继承。不能动态增加对象或类的属性或方法。<br>变量类型必须提前声明(静态类型)。<br>可以直接自动写入硬盘。</p>
+<h1 id="语法和类型"><a href="#语法和类型" class="headerlink" title="语法和类型"></a>语法和类型</h1><h5 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h5><p>指令被称为  语句，并用分号 (;)分隔。空格、制表符和换行符被称为空白字符。JavaScript 脚本的源文本是从左到右扫描，并将其转换成由 tokens（不可分割的词法单位）、控制字符、行终止符、注释或空白符组成的输入元素序列。</p>
+<h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 单行注释</span><br><span class="line"></span><br><span class="line">/* 这是一个更长的,</span><br><span class="line">   多行注释</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">/* 然而, 你不能, /* 嵌套注释 */ 语法错误 */</span><br></pre></td></tr></table></figure>
+<h5 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h5><p>var<br>声明一个变量，可赋一个初始化值。</p>
+<p>let<br>声明一个块作用域的局部变量，可赋一个初始化值。</p>
+<p>const<br>声明一个块作用域的只读的命名常量。</p>
+<p>声明变量/变量求值/变量的作用域/变量声明提升/函数提升/全局变量/常量</p>
+<h5 id="数据结构和类型"><a href="#数据结构和类型" class="headerlink" title="数据结构和类型"></a>数据结构和类型</h5><h6 id="1-六种-原型-数据类型"><a href="#1-六种-原型-数据类型" class="headerlink" title="1.六种 原型 数据类型:"></a>1.六种 原型 数据类型:</h6><p>Boolean.  布尔值，true 和 false.</p>
+<p>null. 一个表明 null 值的特殊关键字。 JavaScript 是大小写敏感的，因此 null 与 Null、NULL或其他变量完全不同。</p>
+<p>undefined.  变量未定义时的属性。</p>
+<p>Number.  表示数字，例如： 42 或者 3.14159。</p>
+<p>String.  表示字符串，例如：”Howdy”</p>
+<p>Symbol ( 在 ECMAScript 6 中新添加的类型).。一种数据类型，它的实例是唯一且不可改变的。</p>
+<h6 id="2-以及-Object-对象"><a href="#2-以及-Object-对象" class="headerlink" title="2.以及 Object 对象"></a>2.以及 Object 对象</h6><p>数据类型的转换</p>
+<p>字符串转换为数字:parseInt()和parseFloat()</p>
+<h6 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h6><p>字面量是由语法表达式定义的常量；或，通过由一定字词组成的语词表达式定义的常量</p>
+<p>在字符串中使用的特殊字符/转义字符</p>
+<h1 id="流程控制与错误处理"><a href="#流程控制与错误处理" class="headerlink" title="流程控制与错误处理"></a>流程控制与错误处理</h1><p>语句块</p>
+<h5 id="条件判断语句"><a href="#条件判断语句" class="headerlink" title="条件判断语句"></a>条件判断语句</h5><p>if…else 语句/switch 语句/</p>
+<h5 id="异常处理语句"><a href="#异常处理语句" class="headerlink" title="异常处理语句"></a>异常处理语句</h5><p>异常类型/throw 语句/try…catch 语句/使用Error对象</p>
+<h5 id="Promises"><a href="#Promises" class="headerlink" title="Promises"></a>Promises</h5><p>通过 XHR 加载图片</p>
+<h1 id="循环和迭代"><a href="#循环和迭代" class="headerlink" title="循环和迭代"></a>循环和迭代</h1><h5 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h5><h5 id="do…while-语句"><a href="#do…while-语句" class="headerlink" title="do…while 语句"></a>do…while 语句</h5><h5 id="while-语句"><a href="#while-语句" class="headerlink" title="while 语句"></a>while 语句</h5><h5 id="label-语句"><a href="#label-语句" class="headerlink" title="label 语句"></a>label 语句</h5><h5 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h5><h5 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a>continue 语句</h5><h5 id="for…in-语句"><a href="#for…in-语句" class="headerlink" title="for…in 语句"></a>for…in 语句</h5><h5 id="for…of-statement"><a href="#for…of-statement" class="headerlink" title="for…of statement"></a>for…of statement</h5><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h5 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h5><p>函数声明/函数表达式</p>
+<h5 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h5><h5 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h5><h5 id="作用域和函数堆栈"><a href="#作用域和函数堆栈" class="headerlink" title="作用域和函数堆栈"></a>作用域和函数堆栈</h5><p>递归/嵌套函数和闭包/保存变量/多层嵌套函数/命名冲突</p>
+<h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><p>闭包是 JavaScript 中最强大的特性之一。JavaScript 允许函数嵌套，并且内部函数可以访问定义在外部函数中的所有变量和函数，以及外部函数能访问的所有变量和函数。但是，外部函数却不能够访问定义在内部函数中的变量和函数。这给内部函数的变量提供了一定的安全性。此外，由于内部函数可以访问外部函数的作用域，因此当内部函数生存周期大于外部函数时，外部函数中定义的变量和函数将的生存周期比内部函数执行时间长。当内部函数以某一种方式被任何一个外部函数作用域访问时，一个闭包就产生了。</p>
+<h5 id="使用-arguments-对象"><a href="#使用-arguments-对象" class="headerlink" title="使用 arguments 对象"></a>使用 arguments 对象</h5><h5 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h5><p>默认参数/剩余参数</p>
+<h5 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h5><p>箭头功能捕捉闭包上下文的this值</p>
+<h5 id="预定义函数"><a href="#预定义函数" class="headerlink" title="预定义函数"></a>预定义函数</h5><h1 id="表达式和运算符"><a href="#表达式和运算符" class="headerlink" title="表达式和运算符"></a>表达式和运算符</h1><h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><p>赋值运算符(Assignment operators)</p>
+<p>比较运算符(Comparison operators)</p>
+<p>算数运算符(Arithmetic operators)</p>
+<p>位运算符(Bitwise operators)</p>
+<p>逻辑运算符(Logical operators)</p>
+<p>字符串运算符(String operators)</p>
+<p>条件（三元）运算符(Conditional operator)</p>
+<p>逗号运算符(Comma operator)</p>
+<p>一元运算符(Unary operators)</p>
+<p>关系运算符(Relational operator):</p>
+<p>1.in操作符，如果所指定的属性确实存在于所指定的对象中，则会返回true.</p>
+<p>2.instanceof 如果所判别的对象确实是所指定的类型，则返回true。</p>
+<p>运算符优先级</p>
+<p>表达式</p>
+<h1 id="数字和日期"><a href="#数字和日期" class="headerlink" title="数字和日期"></a>数字和日期</h1><h5 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h5><h5 id="数字对象"><a href="#数字对象" class="headerlink" title="数字对象"></a>数字对象</h5><h5 id="数字的属性和方法"><a href="#数字的属性和方法" class="headerlink" title="数字的属性和方法"></a>数字的属性和方法</h5><h5 id="数学对象（Math）"><a href="#数学对象（Math）" class="headerlink" title="数学对象（Math）"></a>数学对象（Math）</h5><h5 id="日期对象"><a href="#日期对象" class="headerlink" title="日期对象"></a>日期对象</h5><h1 id="Text-formatting"><a href="#Text-formatting" class="headerlink" title="Text formatting"></a>Text formatting</h1><h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><p>多行模板字符串</p>
+<h5 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a>国际化</h5><h5 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h5><h1 id="正则表达式-1"><a href="#正则表达式-1" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>正则表达式是用于匹配字符串中字符组合的模式。在 JavaScript中，正则表达式也是对象。</p>
+<h1 id="索引集合类-Indexed-collections"><a href="#索引集合类-Indexed-collections" class="headerlink" title="索引集合类 (Indexed collections)"></a>索引集合类 (Indexed collections)</h1><h5 id="数组对象-Array-object"><a href="#数组对象-Array-object" class="headerlink" title="数组对象(Array object)"></a>数组对象(Array object)</h5><h5 id="数组推导式"><a href="#数组推导式" class="headerlink" title="数组推导式"></a>数组推导式</h5><h5 id="类型化数组-Typed-Arrays"><a href="#类型化数组-Typed-Arrays" class="headerlink" title="类型化数组(Typed Arrays )"></a>类型化数组(Typed Arrays )</h5><h1 id="带键的集合"><a href="#带键的集合" class="headerlink" title="带键的集合"></a>带键的集合</h1><p>Map 和 Set 对象承载的数据元素可以按照插入时的顺序被迭代遍历。</p>
+<h5 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h5><p>Map对象/WeakMap对象</p>
+<h5 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h5><p>Set对象/WeakSet对象</p>
+<h5 id="Map的键和Set的值的等值判断"><a href="#Map的键和Set的值的等值判断" class="headerlink" title="Map的键和Set的值的等值判断"></a>Map的键和Set的值的等值判断</h5><h1 id="使用对象"><a href="#使用对象" class="headerlink" title="使用对象"></a>使用对象</h1><p>JavaScript 的设计是一个简单的基于对象的范式。一个对象就是一系列属性的集合，一个属性包含一个名和一个值。一个属性的值可以是函数，这种情况下属性也被称为方法。</p>
+<h5 id="对象和属性"><a href="#对象和属性" class="headerlink" title="对象和属性"></a>对象和属性</h5><h5 id="枚举一个对象的所有属性"><a href="#枚举一个对象的所有属性" class="headerlink" title="枚举一个对象的所有属性"></a>枚举一个对象的所有属性</h5><h5 id="创建新对象"><a href="#创建新对象" class="headerlink" title="创建新对象"></a>创建新对象</h5><h1 id="对象模型的细节"><a href="#对象模型的细节" class="headerlink" title="对象模型的细节"></a>对象模型的细节</h1><p>基于类 vs 基于原型的语言</p>
+<h5 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h5><h5 id="子类和继承"><a href="#子类和继承" class="headerlink" title="子类和继承"></a>子类和继承</h5><h5 id="添加和移除属性"><a href="#添加和移除属性" class="headerlink" title="添加和移除属性"></a>添加和移除属性</h5><h5 id="差异总结"><a href="#差异总结" class="headerlink" title="差异总结"></a>差异总结</h5><h6 id="属性的继承"><a href="#属性的继承" class="headerlink" title="属性的继承"></a>属性的继承</h6><h1 id="迭代器和生成器"><a href="#迭代器和生成器" class="headerlink" title="迭代器和生成器"></a>迭代器和生成器</h1><p>for循环到map()和filter()。迭代器和生成器将迭代的概念直接带入核心语言，并提供了一种机制来自定义for…of循环的行为 。</p>
+<h5 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h5><h5 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h5><h5 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h5><h5 id="高级生成器"><a href="#高级生成器" class="headerlink" title="高级生成器"></a>高级生成器</h5><h1 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h1><h5 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h5><p>Proxy对象可以拦截某些操作并实现自定义行为。 例如获取一个对象上的属性：</p>
+<p>句柄和陷阱/撤销 Proxy</p>
+<h5 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h5>
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © caoqiang 2018
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

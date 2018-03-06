@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>React入门-基础语法 | Erik博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="（1）JSX语法深入理解简介：从根本上来说，JSX语法提供了一种创建React元素的语法糖，JSX语句可以编译成： React.createElement(component, props, …children)的形式。 12345678910111213&amp;lt;MyButton color=&amp;quot;blue&amp;quot; shadowSize=&amp;#123;2&amp;#125;&amp;gt;  Click">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React入门-基础语法">
+<meta property="og:url" content="http://yoursite.com/2018/03/06/React入门-基础语法/index.html">
+<meta property="og:site_name" content="Erik博客">
+<meta property="og:description" content="（1）JSX语法深入理解简介：从根本上来说，JSX语法提供了一种创建React元素的语法糖，JSX语句可以编译成： React.createElement(component, props, …children)的形式。 12345678910111213&amp;lt;MyButton color=&amp;quot;blue&amp;quot; shadowSize=&amp;#123;2&amp;#125;&amp;gt;  Click">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-06T11:59:55.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React入门-基础语法">
+<meta name="twitter:description" content="（1）JSX语法深入理解简介：从根本上来说，JSX语法提供了一种创建React元素的语法糖，JSX语句可以编译成： React.createElement(component, props, …children)的形式。 12345678910111213&amp;lt;MyButton color=&amp;quot;blue&amp;quot; shadowSize=&amp;#123;2&amp;#125;&amp;gt;  Click">
+  
+    <link rel="alternate" href="/atom.xml" title="Erik博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Erik</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                首页
+            </a>
+            
+            <a class="nav-item" href="/document">
+                文档
+            </a>
+            
+            <a class="nav-item" href="/about">
+                关于
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                首页
+            </a>
+            
+            <a class="nav-item flex-1" href="/document">
+                文档
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                关于
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>React入门-基础语法</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="/css/images/banner.jpg">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Erik</span>
+                <span class="post-date sub-title">at: 2018-03-06</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/react/">react</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h4 id="（1）JSX语法深入理解"><a href="#（1）JSX语法深入理解" class="headerlink" title="（1）JSX语法深入理解"></a>（1）JSX语法深入理解</h4><p>简介：从根本上来说，JSX语法提供了一种创建React元素的语法糖，JSX语句可以编译成： React.createElement(component, props, …children)的形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyButton color=&quot;blue&quot; shadowSize=&#123;2&#125;&gt;</span><br><span class="line">  Click Me</span><br><span class="line">&lt;/MyButton&gt;</span><br><span class="line"></span><br><span class="line">//编译结果：</span><br><span class="line">React.createElement(</span><br><span class="line">  MyButton,</span><br><span class="line">  &#123;color: &apos;blue&apos;, shadowSize: 2&#125;,</span><br><span class="line">  &apos;Click Me&apos;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">//使用自闭和的形式：</span><br><span class="line">&lt;div className=&quot;sidebar&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>1.指定React元素的类型</strong></p>
+<p>JSX标签的头部，决定了React元素的类型，大写的标签，意味着JSX的标签与React的组件一一对应</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;Foo/&gt;标签就对应了Foo组件</span><br><span class="line"></span><br><span class="line">//（1）必须包裹在一定的范围内</span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import CustomButton from &apos;./CustomButton&apos;;</span><br><span class="line"></span><br><span class="line">function WarningButton() &#123;</span><br><span class="line">  // return React.createElement(CustomButton, &#123;color: &apos;red&apos;&#125;, null);</span><br><span class="line">  return &lt;CustomButton color=&quot;red&quot; /&gt;;</span><br><span class="line">&#125;</span><br><span class="line">引入了2个组件，构成了一个新的组件WarningButton，组件的返回值的元素，必须包含在一定范围内，这里通过函数的’&#123; ‘, ’ &#125; ‘实现包裹的效果。</span><br><span class="line"></span><br><span class="line"> //（2）用户定义的组件必须大写</span><br><span class="line"></span><br><span class="line">function Hello()&#123;</span><br><span class="line">   return &lt;h2&gt;Hello,World&lt;/h2&gt;</span><br><span class="line">&#125;</span><br><span class="line">//定义过程</span><br><span class="line">&lt;Hello/&gt;</span><br><span class="line">//使用过程</span><br><span class="line"></span><br><span class="line">//(3)不能在运行期间，动态的选择类型</span><br><span class="line"></span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import &#123; PhotoStory, VideoStory &#125; from &apos;./stories&apos;;</span><br><span class="line"></span><br><span class="line">const components = &#123;</span><br><span class="line">  photo: PhotoStory,</span><br><span class="line">  video: VideoStory</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function Story(props) &#123;</span><br><span class="line">  return &lt;components[props.storyType] story=&#123;props.story&#125; /&gt;;</span><br><span class="line">  //这样写是不对的，我们在返回的组件中，动态定义了组件，这种动态的定义是无效的</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//应该改写为:</span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import &#123; PhotoStory, VideoStory &#125; from &apos;./stories&apos;;</span><br><span class="line"></span><br><span class="line">const components = &#123;</span><br><span class="line">  photo: PhotoStory,</span><br><span class="line">  video: VideoStory</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function Story(props) &#123;</span><br><span class="line"></span><br><span class="line">  const SpecificStory = components[props.storyType];</span><br><span class="line">  return &lt; SpecificStory  story=&#123;props.story&#125; /&gt;;</span><br><span class="line">    //这样就是正确的，我们不要在JSX的标签中使用动态定义</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.JSX中的Props属性</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//（1）JS表达式</span><br><span class="line">//通过&#123;&#125;，包裹js的语法来使用</span><br><span class="line">&lt;MyComponent foo=&#123;1 + 2 + 3 + 4&#125; /&gt;</span><br><span class="line"></span><br><span class="line">//（2）Props属性的默认值</span><br><span class="line">&lt;MyTextBox autocomplete /&gt;</span><br><span class="line"></span><br><span class="line">&lt;MyTextBox autocomplete=&#123;true&#125; /&gt;</span><br><span class="line">//两个式子是等价的，但是不推荐使用默认值，因为在ES6的语法中&#123;foo&#125;代表的意思是：&#123;foo:foo&#125;的意思，并不是&#123;foo:true&#125;。</span><br><span class="line"></span><br><span class="line">//（3）扩展属性 </span><br><span class="line">function App1() &#123;</span><br><span class="line">  return &lt;Greeting firstName=&quot;Ben&quot; lastName=&quot;Hector&quot; /&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function App2() &#123;</span><br><span class="line">  const props = &#123;firstName: &apos;Ben&apos;, lastName: &apos;Hector&apos;&#125;;</span><br><span class="line">  return &lt;Greeting &#123;...props&#125; /&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.JSX中的children</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">//（1）children中的function</span><br><span class="line">function ListOfTenThings() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;Repeat numTimes=&#123;10&#125;&gt;</span><br><span class="line">      &#123;(index) =&gt; &lt;div key=&#123;index&#125;&gt;This is item &#123;index&#125; in the list&lt;/div&gt;&#125;</span><br><span class="line">    &lt;/Repeat&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Repeat(props) &#123;</span><br><span class="line">  let items = [];</span><br><span class="line">  for (let i = 0; i &lt; props.numTimes; i++) &#123;</span><br><span class="line">    items.push(props.children(i));</span><br><span class="line">  &#125;</span><br><span class="line">  return &lt;div&gt;&#123;items&#125;&lt;/div&gt;;</span><br><span class="line">&#125;</span><br><span class="line">//Repeat组件的定义中可以看出来，children中的方法按此定义会一直执行10次</span><br><span class="line"></span><br><span class="line">//（2）忽略Boolean，Null以及Undefined</span><br><span class="line">//false,null,undefined以及true是不能通过render()方法，呈现在页面上的，下面的这些div块的样式 相同，都是空白块：</span><br><span class="line">&lt;div /&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;&#123;false&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;&#123;null&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;&#123;true&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;showHeader &amp;&amp; &lt;Header /&gt;&#125;</span><br><span class="line">  &lt;Content /&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">//逻辑是，只有showHeader==true，在会在页面呈现Header组件，否则为null，即为不显示任何东西，这相当于一个if的判断了。</span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;props.messages.length &amp;&amp;</span><br><span class="line">    &lt;MessageList messages=&#123;props.messages&#125; /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">//即使元素为0，0是能够呈现在页面中的。也就是说上述代码中，只要 </span><br><span class="line">props.messages数组存在，不管长度是否为0都是存在的。</span><br><span class="line"></span><br><span class="line">//（3）如何显示Null，Undefined和Boolean</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  My JavaScript variable is &#123;String(myVariable)&#125;.</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">//其先转化为字符串之后再显示</span><br></pre></td></tr></table></figure>
+<h2 id="（2）对于Refs最新变动的理解"><a href="#（2）对于Refs最新变动的理解" class="headerlink" title="（2）对于Refs最新变动的理解"></a>（2）对于Refs最新变动的理解</h2><h4 id="1-什么是ReactJS中的refs"><a href="#1-什么是ReactJS中的refs" class="headerlink" title="1.什么是ReactJS中的refs"></a>1.什么是ReactJS中的refs</h4><p>React中组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟 DOM （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，所有的 DOM 变动，都先在虚拟 DO上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 DOM diff ，它可以极大提高网页的性能表现。<br>如果我们想在虚拟DOM时（此时DOM还没有转化为真是DOM），取到某一个元素，此时不能通过JS的getElementByXXX这种形式。</p>
+<h4 id="2-ReactJS前期的做法"><a href="#2-ReactJS前期的做法" class="headerlink" title="2.ReactJS前期的做法"></a>2.ReactJS前期的做法</h4><p>在虚拟DOM阶段取元素，语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Hello()&#123;</span><br><span class="line">    handleClick:function()&#123;</span><br><span class="line">       this.refs.myinput.fucus();</span><br><span class="line">    &#125;</span><br><span class="line">    return &lt;input ref=&quot;myinput&quot; /&gt;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>可以通过refs.[refsName]来取得虚拟DOM中的元素</p>
+<h4 id="3-ReactJS最新版本，对于refs的定义"><a href="#3-ReactJS最新版本，对于refs的定义" class="headerlink" title="3.ReactJS最新版本，对于refs的定义"></a>3.ReactJS最新版本，对于refs的定义</h4><p>组件中的refs是一个回调函数。这个函数，在组件生成期（mounted）会自动执行，这个回调函数的参数是元素本身：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Hello()&#123;</span><br><span class="line">   handleClick:function()&#123;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   return &lt;input ref=&#123;(input)=&gt;&#123;this.myinput=input;&#125;&#125;/&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ref的函数，传入了input元素本身，并且将this.myinput赋值为input元素本身。</p>
+<p>在元素的销毁期（unmounted）也会执行，但是在销毁期，无论如何只会返回null。</p>
+<p>ref 属性：React 支持一种非常特殊的属性，你可以用来绑定到 render() 输出的任何组件上去。这个特殊的属性允许你引用 render() 返回的相应的支撑实例（ backing instance ）。这样就可以确保在任何时间总是拿到正确的实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; ref=&quot;username&quot; /&gt;  </span><br><span class="line">  </span><br><span class="line">//下面4种方式都可以通过ref获取真实DOM节点  </span><br><span class="line">var usernameDOM = this.refs.username.getDOMNode();  </span><br><span class="line">var usernameDOM = React.findDOMNode(this.refs.username);  </span><br><span class="line">var usernameDOM = this.refs[&apos;username&apos;].getDOMNode();  </span><br><span class="line">var usernameDOM = React.findDOMNode(this.refs[&apos;username&apos;]);</span><br></pre></td></tr></table></figure>
+<h2 id="（3）React中的Context"><a href="#（3）React中的Context" class="headerlink" title="（3）React中的Context"></a>（3）React中的Context</h2><p>简介：在React中，数据可以以流的形式自上而下的传递，每当你使用一个组件的时候，你可以看到组件的props属性会自上而下的传递。但是，在某些情况下，我们不想通过父组件的props属性一级一级的往下传递，我们希望在某一级子组件中，直接得到上N级父组件中props中的值。</p>
+<h5 id="1-一般情况下通过props传值的情况"><a href="#1-一般情况下通过props传值的情况" class="headerlink" title="1.一般情况下通过props传值的情况"></a>1.一般情况下通过props传值的情况</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Button extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;button style=&#123;&#123;background: this.props.color&#125;&#125;&gt;</span><br><span class="line">        &#123;this.props.children&#125;</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Message extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &#123;this.props.text&#125; &lt;Button color=&#123;this.props.color&#125;&gt;Delete&lt;/Button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MessageList extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const color = &quot;purple&quot;;</span><br><span class="line">    const children = this.props.messages.map((message) =&gt;</span><br><span class="line">      &lt;Message text=&#123;message.text&#125; color=&#123;color&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">    return &lt;div&gt;&#123;children&#125;&lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析一下这段代码，大致的组件分为3级:顶层MessageLists——&gt;Message一级子类——&gt;Button底层子类，我们来看从父组件到子组件的值的传递情况：</p>
+<p>（1）text:我们可以看到，在顶层组件MessageLists中的值，传递到一级子组件Message中，并在此组件中被使用。</p>
+<p>（2）color:再看props中的color的传递情况，在顶层组件MessageLists中的值，先传递到一级子组件Message中，在传递到二级子组件Button中，最后在二级子组件中被使用。</p>
+<p>综上：这就是一般在React中，所使用的通过props属性，在父组件与子组件中进行值传递。</p>
+<h4 id="2-如何利用React中的Context来进行值的越级传递。"><a href="#2-如何利用React中的Context来进行值的越级传递。" class="headerlink" title="2.如何利用React中的Context来进行值的越级传递。"></a>2.如何利用React中的Context来进行值的越级传递。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">class Button extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;button style=&#123;&#123;background: this.context.color&#125;&#125;&gt;</span><br><span class="line">        &#123;this.props.children&#125;</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Button.contextTypes = &#123;</span><br><span class="line">  color: React.PropTypes.string</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Message extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &#123;this.props.text&#125; &lt;Button&gt;Delete&lt;/Button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MessageList extends React.Component &#123;</span><br><span class="line">  getChildContext() &#123;</span><br><span class="line">    return &#123;color: &quot;purple&quot;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const children = this.props.messages.map((message) =&gt;</span><br><span class="line">      &lt;Message text=&#123;message.text&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">    return &lt;div&gt;&#123;children&#125;&lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MessageList.childContextTypes = &#123;</span><br><span class="line">  color: React.PropTypes.string</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上述代码，我们实现了通过React的Context实现了值——color的越级传递。我们来分析一下上述的方法。</p>
+<p>（1）首先在顶层组件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MessageList.childContextTypes = &#123;</span><br><span class="line">  color: React.PropTypes.string</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>定义了顶层组件所拥有的子类context对象——该顶层组件所拥有的的子类context对象为color，且必须为字符串。</p>
+<p>然后通过getChildText方法，来给子context对象的属性赋值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getChildContext() &#123;</span><br><span class="line"></span><br><span class="line">    return &#123;color: &quot;purple&quot;&#125;;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>这样就完成了顶层组件中，context对象的赋值。</p>
+<p>（2）越级传递，因为color属性只在最底层使用</p>
+<p>我们来看color属性的越级传递，因为color属性，在一级子组件Message中并没有直接用到，因此我们可以直接传递到最底层（越级），在Button组件中使用。</p>
+<p>首先Button组件中，再次声明了所接受到的context的子组件color的类型，声明必须为字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Button.contextTypes = &#123;</span><br><span class="line">  color: React.PropTypes.string</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>然后可以通过this.context.color这种方式调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button style=&#123;&#123;background: this.context.color&#125;&#125;&gt;</span><br><span class="line">        &#123;this.props.children&#125;</span><br><span class="line"> &lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="（4）ShouldComponentUpdate的用法"><a href="#（4）ShouldComponentUpdate的用法" class="headerlink" title="（4）ShouldComponentUpdate的用法"></a>（4）ShouldComponentUpdate的用法</h2><p>简介：ShouldCompleteUpdate，指明什么时候component（组件）需要进行更新。</p>
+<h4 id="1-常见的SCU的用法："><a href="#1-常见的SCU的用法：" class="headerlink" title="1.常见的SCU的用法："></a>1.常见的SCU的用法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">//（1）比如在下面的例子中，组件中只有2个值，props.color和state.count可以发生改变</span><br><span class="line">class CounterButton extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state = &#123;count: 1&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">    if (this.props.color !== nextProps.color) &#123;</span><br><span class="line">      return true;</span><br><span class="line">    &#125;</span><br><span class="line">    if (this.state.count !== nextState.count) &#123;</span><br><span class="line">      return true;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    &lt;button</span><br><span class="line">      color=&#123;this.props.color&#125;</span><br><span class="line">      onClick=&#123;() =&gt; this.setState(state =&gt; (&#123;count: state.count + 1&#125;))&#125;&gt;</span><br><span class="line">      Count: &#123;this.state.count&#125;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//组件仅仅会校验prop.color和state.count,如果这些值都不会改变，那么组件就不会有更新。</span><br><span class="line"></span><br><span class="line">//（2）如果组件更加复杂，拥有的状态变量更多</span><br><span class="line">//当组件复杂化，拥有状态变多时，我们需要设计一种模式，对所有的props变量和state变量，做一个“shallow comparison(浅比较）”，这样会使得SCU函数冗杂化，为了解决该问题，React给了我们提供了另一个继承方法——React.PureComponent：</span><br><span class="line">class CounterButton extends React.PureComponent &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state = &#123;count: 1&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    &lt;button</span><br><span class="line">      color=&#123;this.props.color&#125;</span><br><span class="line">      onClick=&#123;() =&gt; this.setState(state =&gt; (&#123;count: state.count + 1&#125;))&#125;&gt;</span><br><span class="line">      Count: &#123;this.state.count&#125;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//在大部门情况下我们可以用React.PureComponent来代替SCU，但是当props和state中的变量发生突变的情况下，</span><br><span class="line">//“shallow comparison”会失效，因此在props和state的变量发生突变的情况下，</span><br><span class="line">//不能通过React.PureComponent来更新组件。</span><br><span class="line"></span><br><span class="line">var x=[1,2];</span><br><span class="line">var y=x;</span><br><span class="line">x.push(3);</span><br><span class="line">console.log(x==y)//输出true</span><br><span class="line"></span><br><span class="line">var x=&#123;a:1&#125;;</span><br><span class="line">var y=x;</span><br><span class="line">x.b=2;</span><br><span class="line">console.log(x==y)//输出true</span><br><span class="line">//shallow comparison不能进行深层比较的原因是，js中数组和对象的本质都是Object，</span><br><span class="line">//一旦赋值y=x后，无论x如何变化，x,y都会只想的是同一个对象。</span><br></pre></td></tr></table></figure>
+<h4 id="3-如何解决shallow-comparison失效的问题"><a href="#3-如何解决shallow-comparison失效的问题" class="headerlink" title="3.如何解决shallow comparison失效的问题"></a>3.如何解决shallow comparison失效的问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//失效状态1：</span><br><span class="line">handleClick() &#123;</span><br><span class="line">    // This section is bad style and causes a bug</span><br><span class="line">    const words = this.state.words;</span><br><span class="line">    words.push(&apos;marklar&apos;);</span><br><span class="line">    this.setState(&#123;words: words&#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">//解决方法：</span><br><span class="line">handleClick() &#123;</span><br><span class="line">  this.setState(prevState =&gt; (&#123;</span><br><span class="line">    words: prevState.words.concat([&apos;marklar&apos;])</span><br><span class="line">  &#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//失效状态2：</span><br><span class="line">function updateColorMap(colormap) &#123;</span><br><span class="line">  colormap.right = &apos;blue&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//解决方法：</span><br><span class="line">function updateColorMap(colormap) &#123;</span><br><span class="line">  return Object.assign(&#123;&#125;, colormap, &#123;right: &apos;blue&apos;&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//本质:解决方法的本质是生成了一个新的对象，新对象与原对象比较一定返回的是false。</span><br></pre></td></tr></table></figure>
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © caoqiang 2018
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

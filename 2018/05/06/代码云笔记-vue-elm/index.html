@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>代码云笔记-vue-elm | Erik博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于localStorage1234567891011121314151617181920212223242526/** * 存储localStorage */export const setStore = (name, content) =&amp;gt; &amp;#123;	if (!name) return;	if (typeof content !== &amp;apos;string&amp;apos;) &amp;#123">
+<meta name="keywords" content="codeNote">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码云笔记-vue-elm">
+<meta property="og:url" content="http://yoursite.com/2018/05/06/代码云笔记-vue-elm/index.html">
+<meta property="og:site_name" content="Erik博客">
+<meta property="og:description" content="关于localStorage1234567891011121314151617181920212223242526/** * 存储localStorage */export const setStore = (name, content) =&amp;gt; &amp;#123;	if (!name) return;	if (typeof content !== &amp;apos;string&amp;apos;) &amp;#123">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-06T15:04:06.615Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码云笔记-vue-elm">
+<meta name="twitter:description" content="关于localStorage1234567891011121314151617181920212223242526/** * 存储localStorage */export const setStore = (name, content) =&amp;gt; &amp;#123;	if (!name) return;	if (typeof content !== &amp;apos;string&amp;apos;) &amp;#123">
+  
+    <link rel="alternate" href="/atom.xml" title="Erik博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">Erik</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                首页
+            </a>
+            
+            <a class="nav-item" href="/document">
+                文档
+            </a>
+            
+            <a class="nav-item" href="/about">
+                关于
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                首页
+            </a>
+            
+            <a class="nav-item flex-1" href="/document">
+                文档
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                关于
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>代码云笔记-vue-elm</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="/css/images/user.jpg">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Erik</span>
+                <span class="post-date sub-title">at: 2018-05-06</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/codeNote/">codeNote</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h2 id="关于localStorage"><a href="#关于localStorage" class="headerlink" title="关于localStorage"></a>关于localStorage</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 存储localStorage</span><br><span class="line"> */</span><br><span class="line">export const setStore = (name, content) =&gt; &#123;</span><br><span class="line">	if (!name) return;</span><br><span class="line">	if (typeof content !== &apos;string&apos;) &#123;</span><br><span class="line">		content = JSON.stringify(content);</span><br><span class="line">	&#125;</span><br><span class="line">	window.localStorage.setItem(name, content);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 获取localStorage</span><br><span class="line"> */</span><br><span class="line">export const getStore = name =&gt; &#123;</span><br><span class="line">	if (!name) return;</span><br><span class="line">	return window.localStorage.getItem(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 删除localStorage</span><br><span class="line"> */</span><br><span class="line">export const removeStore = name =&gt; &#123;</span><br><span class="line">	if (!name) return;</span><br><span class="line">	window.localStorage.removeItem(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="关于px转换rem"><a href="#关于px转换rem" class="headerlink" title="关于px转换rem"></a>关于px转换rem</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(function(doc, win) &#123;</span><br><span class="line">    var docEl = doc.documentElement,</span><br><span class="line">        resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;,</span><br><span class="line">        recalc = function() &#123;</span><br><span class="line">            var clientWidth = docEl.clientWidth;</span><br><span class="line">            if (!clientWidth) return;</span><br><span class="line">            docEl.style.fontSize = 20 * (clientWidth / 320) + &apos;px&apos;;</span><br><span class="line">        &#125;;</span><br><span class="line">    if (!doc.addEventListener) return;</span><br><span class="line">    win.addEventListener(resizeEvt, recalc, false);</span><br><span class="line">    doc.addEventListener(&apos;DOMContentLoaded&apos;, recalc, false);</span><br><span class="line">&#125;)(document, window);</span><br></pre></td></tr></table></figure>
+<h2 id="关于fastclick-js"><a href="#关于fastclick-js" class="headerlink" title="关于fastclick.js"></a>关于fastclick.js</h2><p>FastClick 是一个简单，易于使用的JS库用于消除在<strong>移动浏览器</strong>上触发click事件与一个物理Tap(敲击)之间的300延迟。让你的应用程序更加灵敏迅捷。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import FastClick from &apos;fastclick&apos;</span><br><span class="line"></span><br><span class="line">if (&apos;addEventListener&apos; in document) &#123;</span><br><span class="line">    document.addEventListener(&apos;DOMContentLoaded&apos;, function() &#123;</span><br><span class="line">        FastClick.attach(document.body);</span><br><span class="line">    &#125;, false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取style样式"><a href="#获取style样式" class="headerlink" title="获取style样式"></a>获取style样式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 获取style样式</span><br><span class="line"> */</span><br><span class="line">export const getStyle = (element, attr, NumberMode = &apos;int&apos;) =&gt; &#123;</span><br><span class="line">    let target;</span><br><span class="line">    // scrollTop 获取方式不同，没有它不属于style，而且只有document.body才能用</span><br><span class="line">    if (attr === &apos;scrollTop&apos;) &#123; </span><br><span class="line">        target = element.scrollTop;</span><br><span class="line">    &#125;else if(element.currentStyle)&#123;</span><br><span class="line">        target = element.currentStyle[attr]; </span><br><span class="line">    &#125;else&#123; </span><br><span class="line">        target = document.defaultView.getComputedStyle(element,null)[attr]; </span><br><span class="line">    &#125;</span><br><span class="line">    //在获取 opactiy 时需要获取小数 parseFloat</span><br><span class="line">    return  NumberMode == &apos;float&apos;? parseFloat(target) : parseInt(target);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">import &#123;</span><br><span class="line">	baseUrl</span><br><span class="line">&#125; from &apos;./env&apos;</span><br><span class="line"></span><br><span class="line">export default async(url = &apos;&apos;, data = &#123;&#125;, type = &apos;GET&apos;, method = &apos;fetch&apos;) =&gt; &#123;</span><br><span class="line">	type = type.toUpperCase();</span><br><span class="line">	url = baseUrl + url;</span><br><span class="line"></span><br><span class="line">	if (type == &apos;GET&apos;) &#123;</span><br><span class="line">		let dataStr = &apos;&apos;; //数据拼接字符串</span><br><span class="line">		Object.keys(data).forEach(key =&gt; &#123;</span><br><span class="line">			dataStr += key + &apos;=&apos; + data[key] + &apos;&amp;&apos;;</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		if (dataStr !== &apos;&apos;) &#123;</span><br><span class="line">			dataStr = dataStr.substr(0, dataStr.lastIndexOf(&apos;&amp;&apos;));</span><br><span class="line">			url = url + &apos;?&apos; + dataStr;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if (window.fetch &amp;&amp; method == &apos;fetch&apos;) &#123;</span><br><span class="line">		let requestConfig = &#123;</span><br><span class="line">			credentials: &apos;include&apos;,</span><br><span class="line">			method: type,</span><br><span class="line">			headers: &#123;</span><br><span class="line">				&apos;Accept&apos;: &apos;application/json&apos;,</span><br><span class="line">				&apos;Content-Type&apos;: &apos;application/json&apos;</span><br><span class="line">			&#125;,</span><br><span class="line">			mode: &quot;cors&quot;,</span><br><span class="line">			cache: &quot;force-cache&quot;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (type == &apos;POST&apos;) &#123;</span><br><span class="line">			Object.defineProperty(requestConfig, &apos;body&apos;, &#123;</span><br><span class="line">				value: JSON.stringify(data)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		try &#123;</span><br><span class="line">			const response = await fetch(url, requestConfig);</span><br><span class="line">			const responseJson = await response.json();</span><br><span class="line">			return responseJson</span><br><span class="line">		&#125; catch (error) &#123;</span><br><span class="line">			throw new Error(error)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">			let requestObj;</span><br><span class="line">			if (window.XMLHttpRequest) &#123;</span><br><span class="line">				requestObj = new XMLHttpRequest();</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				requestObj = new ActiveXObject;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			let sendData = &apos;&apos;;</span><br><span class="line">			if (type == &apos;POST&apos;) &#123;</span><br><span class="line">				sendData = JSON.stringify(data);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			requestObj.open(type, url, true);</span><br><span class="line">			requestObj.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">			requestObj.send(sendData);</span><br><span class="line"></span><br><span class="line">			requestObj.onreadystatechange = () =&gt; &#123;</span><br><span class="line">				if (requestObj.readyState == 4) &#123;</span><br><span class="line">					if (requestObj.status == 200) &#123;</span><br><span class="line">						let obj = requestObj.response</span><br><span class="line">						if (typeof obj !== &apos;object&apos;) &#123;</span><br><span class="line">							obj = JSON.parse(obj);</span><br><span class="line">						&#125;</span><br><span class="line">						resolve(obj)</span><br><span class="line">					&#125; else &#123;</span><br><span class="line">						reject(requestObj)</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="判断系统"><a href="#判断系统" class="headerlink" title="判断系统"></a>判断系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//判断系统</span><br><span class="line">        let u = navigator.userAgent;</span><br><span class="line">        let isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Linux&apos;) &gt; -1; //g</span><br><span class="line">        let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端</span><br><span class="line">        if (isAndroid) &#123;</span><br><span class="line">            this.system = &apos;Android&apos;;</span><br><span class="line">        &#125; else if (isIOS) &#123;</span><br><span class="line">            this.system = &apos;IOS&apos;;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            this.system = &apos;pc&apos;;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="关于common-css"><a href="#关于common-css" class="headerlink" title="关于common.css"></a>关于common.css</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li,</span><br><span class="line">a, p, h1, h2, h3, h4, h5, h6, i, b, textarea, button, input, select, figure, figcaption, &#123;</span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">    list-style: none;</span><br><span class="line">    font-style: normal;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">    border: none;</span><br><span class="line">    color: #333;</span><br><span class="line">    font-weight: normal;</span><br><span class="line">    font-family: &quot;Microsoft Yahei&quot;;</span><br><span class="line">    box-sizing: border-box;</span><br><span class="line">    -webkit-tap-highlight-color:transparent;</span><br><span class="line">    -webkit-font-smoothing: antialiased;</span><br><span class="line">    &amp;:hover&#123;</span><br><span class="line">        outline: none;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html,body&#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    width: 100%;</span><br><span class="line">    background-color: #F5F5F5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.clear:after&#123;</span><br><span class="line">    content: &apos;&apos;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.clear&#123;</span><br><span class="line">    zoom:1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.back_img&#123;</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-size: 100% 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.margin&#123;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.left&#123;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.right&#123;</span><br><span class="line">    float: right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.hide&#123;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.show&#123;</span><br><span class="line">    display: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.ellipsis&#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    white-space: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="sass宏"><a href="#sass宏" class="headerlink" title="sass宏"></a>sass宏</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">// 背景图片地址和大小</span><br><span class="line">@mixin bis($url) &#123; </span><br><span class="line">	background-image: url($url);</span><br><span class="line">	background-repeat: no-repeat;</span><br><span class="line">	background-size: 100% 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//边框圆角</span><br><span class="line">@mixin borderRadius($radius) &#123;</span><br><span class="line">    -webkit-border-radius: $radius;</span><br><span class="line">    -moz-border-radius: $radius;</span><br><span class="line">    -ms-border-radius: $radius;</span><br><span class="line">    -o-border-radius: $radius;</span><br><span class="line">    border-radius: $radius;</span><br><span class="line">&#125;</span><br><span class="line">//定位全屏</span><br><span class="line">@mixin allcover&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	top:0;</span><br><span class="line">	right:0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定位上下左右居中</span><br><span class="line">@mixin center &#123;  </span><br><span class="line">	position: absolute;</span><br><span class="line">	top: 50%;</span><br><span class="line">    left: 50%;</span><br><span class="line">    transform: translate(-50%, -50%);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定位上下居中</span><br><span class="line">@mixin ct &#123;  </span><br><span class="line">	position: absolute;</span><br><span class="line">	top: 50%;</span><br><span class="line">    transform: translateY(-50%);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定位左右居中</span><br><span class="line">@mixin cl &#123;  </span><br><span class="line">	position: absolute;</span><br><span class="line">	left: 50%;</span><br><span class="line">    transform: translateX(-50%);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//宽高</span><br><span class="line">@mixin wh($width, $height)&#123;</span><br><span class="line">	width: $width;</span><br><span class="line">	height: $height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//字体大小、行高、字体</span><br><span class="line">@mixin font($size, $line-height, $family: &apos;Microsoft YaHei&apos;) &#123;  </span><br><span class="line">	font: #&#123;$size&#125;/#&#123;$line-height&#125; $family;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//字体大小，颜色</span><br><span class="line">@mixin sc($size, $color)&#123;</span><br><span class="line">	font-size: $size;</span><br><span class="line">	color: $color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © caoqiang 2018
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
